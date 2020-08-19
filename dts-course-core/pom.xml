@@ -11,6 +11,30 @@
                     <target>8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>io.repaint.maven</groupId>
+                <artifactId>tiles-maven-plugin</artifactId>
+                <version>2.17</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <tiles>
+                        <tile>io.ebean.tile:enhancement:12.3.6</tile> <!-- ebean enhancement -->
+
+                        <!-- Kotlin + Java compilers with KAPT support -->
+                        <!--                        <tile>io.avaje.kapt:compile:1.1</tile>-->
+
+                        <!-- KAPT query bean generator -->
+                        <tile>io.ebean.tile:kotlin-kapt:1.6</tile>
+
+                        <!-- other annotation processors ... -->
+                        <!-- <tile>io.avaje.kapt:dinject-generator:1.1</tile> -->
+                        <!-- <tile>io.avaje.kapt:javalin-generator:1.1</tile> -->
+
+                        <!-- other tiles ... -->
+
+                    </tiles>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -50,10 +74,54 @@
         </dependency>
 
         <dependency>
-            <groupId>com.typesafe</groupId>
-            <artifactId>config</artifactId>
-            <version>${typesafe.version}</version>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.21</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.config4k</groupId>
+            <artifactId>config4k</artifactId>
+            <version>${config4k.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.ebean</groupId>
+            <artifactId>ebean</artifactId>
+            <version>12.3.6</version>
+        </dependency>
+
+        <!-- Query bean support -->
+        <dependency>
+            <groupId>io.ebean</groupId>
+            <artifactId>ebean-querybean</artifactId>
+            <version>12.3.6</version>
+        </dependency>
+
+        <!-- APT Query bean generation for Java -->
+        <dependency>
+            <groupId>io.ebean</groupId>
+            <artifactId>querybean-generator</artifactId>
+            <version>12.3.6</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+        <!-- Test dependencies -->
+        <!-- includes docker test database container support  -->
+        <dependency>
+            <groupId>io.ebean</groupId>
+            <artifactId>ebean-test</artifactId>
+            <version>12.3.6</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.kodein.di</groupId>
+            <artifactId>kodein-di-framework-ktor-server-jvm</artifactId>
+            <version>${kodein.version}</version>
         </dependency>
 
     </dependencies>
+
 </project>

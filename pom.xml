@@ -18,7 +18,8 @@
         <logback.version>1.2.3</logback.version>
         <mysql.connector.version>8.0.21</mysql.connector.version>
         <hikari.version>3.4.2</hikari.version>
-        <typesafe.version>1.4.0</typesafe.version>
+        <config4k.version>0.4.2</config4k.version>
+        <kodein.version>7.0.0</kodein.version>
     </properties>
 
     <dependencies>

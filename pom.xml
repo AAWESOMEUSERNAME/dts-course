@@ -9,6 +9,7 @@
     <modules>
         <module>dts-course-core</module>
         <module>dts-course-generator</module>
+        <module>dts-course-excel</module>
     </modules>
 
     <properties>

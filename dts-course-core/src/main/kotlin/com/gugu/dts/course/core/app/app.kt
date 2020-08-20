@@ -5,11 +5,12 @@ package com.gugu.dts.course.core.app
 import com.gugu.dts.course.core.app.routes.apiRoute
 import com.gugu.dts.course.core.inf.features.Ebean
 import com.gugu.dts.course.core.inf.features.Hikari
-import com.gugu.dts.course.core.inf.pojo.Course
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
 import io.ktor.application.Application
 import io.ktor.application.install
+import io.ktor.features.ContentNegotiation
+import io.ktor.jackson.jackson
 import io.ktor.util.KtorExperimentalAPI
 import org.kodein.di.LazyDI
 
@@ -17,14 +18,11 @@ import org.kodein.di.LazyDI
 fun Application.main() {
     install(Hikari)
     install(Ebean)
-//    di{
-//
-//    }
-//    DIcontainer.init(di())
 
-
-    val find = Ebean.database.find(Course::class.java, 1)
-    println(find)
+    install(ContentNegotiation) {
+        jackson {
+        }
+    }
 
     apiRoute()
 }
